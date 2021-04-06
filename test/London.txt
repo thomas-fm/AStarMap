@@ -1,0 +1,19 @@
+9
+Shaftesbury Memorial|51.50967,-0.13476
+CDPQ London|51.50796,-0.13317
+Cafe Green Park|51.50782,-0.14057
+Preto West End|51.51219,-0.13153
+Florence Statue|51.50719,-0.13239
+Aravis Capital|51.50773,-0.13097
+Theatre Royal|51.50847,-0.13162
+Jamie Oliver Diner|51.51067,-0.13396
+Equestrian Statue|51.50731,-0.12783
+Shaftesbury Memorial,0,1,1,0,0,0,0,1,0
+CDPQ London,1,0,0,0,1,0,1,0,0
+Cafe Green Park,1,0,0,0,0,0,0,0,0
+Preto West End,0,0,0,0,0,0,0,1,0
+Florence Statue,0,1,0,0,0,1,0,0,0
+Aravis Capital,0,0,0,0,1,0,1,0,1
+Theatre Royal,0,1,0,0,0,1,0,1,0
+Jamie Oliver Diner,1,0,0,1,0,0,1,0,0
+Equestrian Statue,0,0,0,0,0,1,0,0,0

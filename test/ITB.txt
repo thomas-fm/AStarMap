@@ -1,0 +1,19 @@
+9
+Fiore Boutique|-6.89148,107.61313
+Saung Obor|-6.89477,107.61289
+Toko You|-6.89484,107.61493
+Dago Park|-6.89865,107.6127
+Victoria Bakery|-6.8973,107.61501
+Bebeke Om Aris|-6.89467,107.61744
+ATM CIMB Niaga|-6.8938,107.61295
+Gerbang ITB|-6.89321,107.61043
+Rumah Vans|-6.89214,107.6171
+Fiore Boutique,0,0,0,0,0,0,1,0,1
+Saung Obor,0,0,1,1,0,0,1,0,0
+Toko You,0,1,0,0,1,1,0,0,0
+Dago Park,0,1,0,0,1,0,0,0,0
+Victoria Bakery,0,0,1,1,0,1,0,0,0
+Bebeke Om Aris,0,0,1,0,1,0,0,0,1
+ATM CIMB Niaga,1,1,0,0,0,0,0,1,0
+Gerbang ITB,0,0,0,0,0,0,1,0,0
+Rumah Vans,1,0,0,0,0,1,0,0,0

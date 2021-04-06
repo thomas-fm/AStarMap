@@ -1,0 +1,17 @@
+8
+Bruno Charvin|48.85605,2.34047
+Castelnau De Regis|48.85379,2.34439
+Espace Nature|48.85842,2.34246
+Rody Voix Pub|48.85846,2.34819
+Gudule|48.85372,2.33837
+Cafe des Beaus|48.85771,2.33543
+Le Pre aux Clercs|48.85553,2.3339
+Station Velib|48.85318,2.34315
+Bruno Charvin,0,1,1,0,1,1,0,0
+Castelnau De Regis,1,0,0,1,0,0,0,1
+Espace Nature,1,0,0,0,0,0,0,0
+Rody Voix Pub,0,1,0,0,0,0,0,0
+Gudule,1,0,0,0,0,1,0,1
+Cafe des Beaus,1,0,0,0,1,0,1,0
+Le Pre aux Clercs,0,0,0,0,0,1,0,0
+Station Velib,0,1,0,0,1,0,0,0
