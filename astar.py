@@ -164,7 +164,7 @@ def aStar(graph, start, goal):
     gScore = {} #untuk simpan nilai g
     fScore = {} #untuk simpan nilai f
     gScore[start] = 0 #set g score start node dengan 0
-    fScore[start] = gScore[start]+graph.distance(start,goal) #set f score start node 
+    fScore[start] = gScore[start]+graph.HaversineDistance(start,goal) #set f score start node 
 
     #iterasi selama openset tidak 0
     while (len(openSet) != 0):
@@ -178,21 +178,26 @@ def aStar(graph, start, goal):
         #tambahkan current node ke closedSet
         closedSet.add(current)
         #lakukan pencarian nilai f ke semua tetangga dari current node
-        for neighbour in current.neighbours:
-            tentative_gScore = gScore[current] + graph.HaversineDistance(current, neighbour)
-            if neighbour in closedSet and tentative_gScore >= gScore[neighbour]:
-                continue
-            if neighbour not in closedSet or tentative_gScore < gScore[neighbour]:
-                cameFrom[neighbour] = current
-                gScore[neighbour] = tentative_gScore
-                fScore[neighbour] = gScore[neighbour] + graph.HaversineDistance(neighbour,goal)
-                if neighbour not in openSet:
-                    openSet.add(neighbour)
-        print(current.name) #outputnya sampai node sebelum goal
+        if (len(goal.neighbours)!=0):
+            for neighbour in current.neighbours:
+                tentative_gScore = gScore[current] + graph.HaversineDistance(current, neighbour)
+                if neighbour in closedSet and tentative_gScore >= gScore[neighbour]:
+                    continue
+                if neighbour not in closedSet or tentative_gScore < gScore[neighbour]:
+                    cameFrom[neighbour] = current
+                    gScore[neighbour] = tentative_gScore
+                    fScore[neighbour] = gScore[neighbour] + graph.HaversineDistance(neighbour,goal)
+                    if neighbour not in openSet:
+                        openSet.add(neighbour)
+            print(current.name) #outputnya sampai node sebelum goal
+        else :
+            print("Tidak bisa akses kesana")
+        
+    
     return 0
 
 g = Graph()
 filename = "test.txt"
 g.ReadFromFile(filename)
 g.PrintGraph()
-aStar(g, g.GetNode(0), g.GetNode(9))
+aStar(g, g.GetNode(0), g.GetNode(3))
