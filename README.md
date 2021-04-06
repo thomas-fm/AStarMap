@@ -15,7 +15,7 @@ Algoritma pencarian rute terdekat dengan pendekatan heuristik
 Program dijalankan menggunakan Jupyter Notebook yang dapat diunduh pada tautan berikut:  
 https://www.anaconda.com/products/individual
 Diperlukan instalasi library networkx dan ipyleaflet dalam visualisasi graf dan peta
-# Langkah instalasi library 
+### Langkah instalasi library 
 1. Buka terminal pada jupyter notebook
 2. Install library networkx dan ipyleaflet
 ```
