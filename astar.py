@@ -1,4 +1,5 @@
 import math
+from collections import deque
 class Node:
 
     def __init__(self, name):
@@ -96,7 +97,12 @@ class Graph:
             for neighbour in node.neighbours:
                 print(neighbour.name, end=" ")
             print("")
-            
+
+    def distance(self, node1, node2):
+        if node1 == None or node2 == None:
+            return 0
+        return math.sqrt(pow((float)(node1.x)-(float)(node2.x),2) + pow((float)(node1.y)-(float)(node2.y),2))
+
     def HaversineDistance(self, node1, node2):
         R = 6378137
         dlat = self.rad((float)(node1.x) - (float)(node2.x))
@@ -132,64 +138,61 @@ class Graph:
     def GetListOfNode(self):
         return self.ListOfNode
 
+    def getLowestF(self, openSet, fScore):
+        lowest = float("inf")
+        lowestNode = None
+        for node in openSet:
+            if fScore[node] < lowest:
+                lowest = fScore[node]
+                lowestNode = node
+        return lowestNode
+    
+    def reconstructPath(self, cameFrom, goal):
+        path = deque()
+        node = goal
+        path.appendleft(node)
+        while node in cameFrom:
+            node = cameFrom[node]
+            path.appendleft(node)
+        return path
 
 def aStar(graph, start, goal):
     #Inisialisasi open list dan closed list
-    open_list = []
-    closed_list = []
+    cameFrom = {}
+    openSet = set([start])
+    closedSet = set()
+    gScore = {} #untuk simpan nilai g
+    fScore = {} #untuk simpan nilai f
+    gScore[start] = 0 #set g score start node dengan 0
+    fScore[start] = gScore[start]+graph.distance(start,goal) #set f score start node 
 
-    #Tambahkan start node ke open list
-    open_list.append(start)
-    #Set nilai g(n) awal
-    start.SetG(0)
-    #Set nilai f(n) = h(n) = distance start ke goal
-    start.SetF(graph.HaversineDistance(start, goal))
-
-    #Jika tidak empty
-    while (len(open_list)>0):
-        current = open_list[0]
-
-        #Cari nilai f yang terkecil
-        for node in open_list:
-            if node.f < current.f :
-                current = node
-        
-        #Jika sudah start node = goal node
-        if current == goal :
-            current = goal
-            while (current.GetParent()):
-                current = current.GetParent()
-            return True
-
-        open_list.remove(current)
-        closed_list.append(current)
-        
-        #Lakukan pengecekan terhadap tetangga dari current node
-        result = []
-        if len(goal.neighbours) != 0:
-            for neighbour in current.neighbours:
-                if neighbour in closed_list:
-                    continue
-
-                temp = current.g + graph.HaversineDistance(current, neighbour)
-                if neighbour not in open_list:
-                    open_list.append(neighbour)
-                elif temp >= neighbour.g:
-                    continue
-                
-                neighbour.SetParent(current)
-                neighbour.SetG(temp)
-                neighbour.SetF(temp+graph.HaversineDistance(neighbour, goal))
-
-            result.append(current.name) #ini outputnya sampe node sebelum goal
-            #atau
-            #result.append(neighbour.name) #ini sampe goal cuma kurang yakin jadi masih labil antara yg atas atau yg ini
-            print(result[0])
-        else:
-            print("Tidak bisa akses kesana")
+    #iterasi selama openset tidak 0
+    while (len(openSet) != 0):
+        #set current node dengan node yang punya lowest f
+        current = graph.getLowestF(openSet, fScore)
+        #jika current node sama dengan yang dicari
+        if current == goal:
+            return graph.reconstructPath(cameFrom, goal)
+        #remove current node dari openSet
+        openSet.remove(current)
+        #tambahkan current node ke closedSet
+        closedSet.add(current)
+        #lakukan pencarian nilai f ke semua tetangga dari current node
+        for neighbour in current.neighbours:
+            tentative_gScore = gScore[current] + graph.HaversineDistance(current, neighbour)
+            if neighbour in closedSet and tentative_gScore >= gScore[neighbour]:
+                continue
+            if neighbour not in closedSet or tentative_gScore < gScore[neighbour]:
+                cameFrom[neighbour] = current
+                gScore[neighbour] = tentative_gScore
+                fScore[neighbour] = gScore[neighbour] + graph.HaversineDistance(neighbour,goal)
+                if neighbour not in openSet:
+                    openSet.add(neighbour)
+        print(current.name) #outputnya sampai node sebelum goal
+    return 0
 
 g = Graph()
 filename = "test.txt"
 g.ReadFromFile(filename)
 g.PrintGraph()
-aStar(g, g.GetNode(0), g.GetNode(3))
+aStar(g, g.GetNode(0), g.GetNode(9))
