@@ -17,7 +17,7 @@ Diperlukan instalasi library networkx, ipyleaflet, dan ipywidgets dalam visualis
 ### Langkah instalasi library 
 1. Buka Jupyter Notebook melalui Anaconda3
 2. Create new terminal pada jupyter notebook
-3. Terminal dapat pula dicari melalui explorer yaitu ** Anaconda Prompt **
+3. Terminal dapat pula dicari melalui explorer yaitu **Anaconda Prompt**
 4. Install library networkx, ipyleaflet, ipywidgets menggunakan conda
 ```
 conda install -c conda-forge ipyleaflet  
@@ -34,6 +34,7 @@ conda install -c conda-forge ipywidgets
 5. Input node menggunakan nama node yang ditampilkan
 6. Visualisai graph, rute dan map perlu dilakukan dengan melakukan run pada baris itu
 7. Jika ingin mengubah nama node pada file yang sama, jalankan program mulai dari baris 6 pada Jupyter Notebook
+8. Untuk melihat nama simpul pada peta, dapat dilakukan dengan meng-klik marker yang ada pada peta
 
 ## Authors
 * Ridho Daffasyah - 13519038
