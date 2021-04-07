@@ -36,7 +36,7 @@ conda install -c conda-forge ipywidgets
 7. Jika ingin mengubah nama node pada file yang sama, jalankan program mulai dari baris 6 pada Jupyter Notebook
 8. Untuk melihat nama simpul pada peta, dapat dilakukan dengan meng-klik marker yang ada pada peta
 
-##Screenshot Program
+## Screenshot Program
 1. Tampilan visualisasi graf peta sekitar ITB :
 ![Example screenshot](./img/itb-visualisasigraf.png)
 2. Tampilan visualisasi graf peta sekitar ITB dari Gerbang ITB ke Bebeke Om Aris :
