@@ -28,7 +28,7 @@ conda install -c conda-forge ipywidgets
 
 ## Cara menggunakan program
 1. Clone repository ini
-2. Buka file AStarPathFinding pada folder **src** melalui Jupyter Notebook atau Jupyter Lab pada Anaconda
+2. Buka file AStarPathFinder pada folder **src** melalui Jupyter Notebook atau Jupyter Lab pada Anaconda
 3. Run tiap baris program mulai dari baris paling atas
 4. Input nama file sesuai dengan file yang ada pada folder **test**
 5. Input node menggunakan nama node yang ditampilkan
